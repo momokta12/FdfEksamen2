@@ -1,0 +1,43 @@
+﻿@model FDFVANLØSEEKSAMEN.Repository.Models.Betaling
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Pages/Shared/_LayoutBestyrelse.cshtml";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Payment</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.BetalingsDato)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.BetalingsDato)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Beløbet)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Beløbet)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.AntalLod)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.AntalLod)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Barn)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Barn.BarnId)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.BetalingsId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

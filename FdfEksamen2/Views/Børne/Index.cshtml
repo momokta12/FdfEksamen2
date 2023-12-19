@@ -1,0 +1,54 @@
+﻿@model IEnumerable<FDFVANLØSEEKSAMEN.Repository.Models.Barn>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Pages/Shared/_LayoutLotteriBestyrer.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Bnavn)
+            </th>
+            <th>
+                od)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RetuneretLod)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Bg)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                    @Html.DisplayFor(modelItem => item.Bnavn)
+            </td>
+            <td>
+                    @Html.DisplayFor(modelItem => item.ModtagetLod)
+            </td>
+            <td>
+                    @Html.DisplayFor(modelItem => item.RetuneretLod)
+            </td>
+            <td>
+                    @Html.DisplayFor(modelItem => item.Bg.Bgnavn)
+            </td>
+            <td>
+                    <a asp-action="Edit" asp-route-id="@item.BarnId">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.BarnId">Info</a> |
+                    <a asp-action="Delete" asp-route-id="@item.BarnId">Slet</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,54 @@
+﻿@model IEnumerable<FDFVANLØSEEKSAMEN.Repository.Models.Betaling>
+
+@{
+    ViewData["Title"] = "Payment";
+    Layout = "~/Pages/Shared/_LayoutLotteriBestyrer.cshtml";
+}
+
+<h1>Payment List</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.BetalingsDato)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Beløbet)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AntalLod)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Barn)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                    @Html.DisplayFor(modelItem => item.BetalingsDato)
+            </td>
+            <td>
+                    @Html.DisplayFor(modelItem => item.Beløbet)
+            </td>
+            <td>
+                    @Html.DisplayFor(modelItem => item.AntalLod)
+            </td>
+            <td>
+                    @Html.DisplayFor(modelItem => item.Barn.Bnavn)
+            </td>
+            <td>
+                    <a asp-action="Edit" asp-route-id="@item.BetalingsId">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.BetalingsId">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.BetalingsId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

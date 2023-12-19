@@ -1,0 +1,45 @@
+﻿@model FDFVANLØSEEKSAMEN.Repository.Models.Betaling
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Pages/Shared/_LayoutLotteriBestyrer.cshtml";
+}
+
+<h1>Slet</h1>
+
+<h3>Er du sikker?</h3>
+<div>
+    <h4>Payment</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.BetalingsDato)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.BetalingsDato)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Beløbet)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Beløbet)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.AntalLod)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.AntalLod)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Barn)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Barn.Bnavn)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="BetalingsId" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>

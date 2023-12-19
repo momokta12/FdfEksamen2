@@ -1,0 +1,53 @@
+﻿@model IEnumerable<FDFVANLØSEEKSAMEN.ViewModel.BørnDTO>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Pages/Shared/_LayoutBestyrelse.cshtml";
+}
+
+<h1>Børne Liste</h1>
+<label class="text-info">@ViewBag.message</label>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.BNavn)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ModtagetLOD)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RetuneretLOD)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BarneID)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.lodsolgt)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BNavn)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ModtagetLOD)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RetuneretLOD)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BarneID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.lodsolgt)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

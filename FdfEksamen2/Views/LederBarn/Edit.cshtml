@@ -1,0 +1,52 @@
+﻿@model FDFVANLØSEEKSAMEN.Repository.Models.Barn
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Pages/Shared/_LayoutLeder.cshtml";
+}
+
+<h1>Edit</h1>
+
+<h4>Barn</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="BarnId" />
+            <div class="form-group">
+                <label asp-for="Bnavn" class="control-label"></label>
+                <input asp-for="Bnavn" class="form-control" readonly />
+                <span asp-validation-for="Bnavn" class="text-danger "></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Bgid" class="control-label"></label>
+                <select asp-for="Bgid" class="form-control" asp-items="ViewBag.BGID" readonly></select>
+                <span asp-validation-for="Bgid" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ModtagetLod" class="control-label"></label>
+                <input asp-for="ModtagetLod" class="form-control" />
+                <span asp-validation-for="ModtagetLod" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RetuneretLod" class="control-label"></label>
+                <input asp-for="RetuneretLod" class="form-control" />
+                <span asp-validation-for="RetuneretLod" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

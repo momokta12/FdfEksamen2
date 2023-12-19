@@ -1,0 +1,54 @@
+﻿@model IEnumerable<FDFVANLØSEEKSAMEN.Repository.Models.BørneGruppe>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Pages/Shared/_LayoutLotteriBestyrer.cshtml";
+}
+
+<h1>BørneGrupper</h1>
+
+<p>
+    <a asp-action="Create">Opret ny</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Bgnavn)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ModtagetLod)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RetuneretLod)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Leder)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                    @Html.DisplayFor(modelItem => item.Bgnavn)
+            </td>
+            <td>
+                    @Html.DisplayFor(modelItem => item.ModtagetLod)
+            </td>
+            <td>
+                    @Html.DisplayFor(modelItem => item.RetuneretLod)
+            </td>
+            <td>
+                    @Html.DisplayFor(modelItem => item.Leder.Brugernavn)
+            </td>
+            <td>
+                    <a asp-controller="BørneGruppe" asp-action="Edit" asp-route-id="@item.Bgid">Edit</a> |
+                    <a asp-controller="BørneGruppe" asp-action="Details" asp-route-id="@item.Bgid">Info</a> |
+                    <a asp-controller="BørneGruppe" asp-action="Delete" asp-route-id="@item.Bgid">Slet</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
